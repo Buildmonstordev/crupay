@@ -1,0 +1,35 @@
+# CruPay
+
+> The physical crypto-to-fiat bridge for the real world.
+
+CruPay is a decentralized peer-to-peer (P2P) marketplace that connects Solana crypto holders with individuals and businesses needing to settle UPI payments in India.
+
+## How It Works
+
+CruPay abstracts away the complexity of traditional P2P exchanges (like Binance P2P or Paxful) by offering an instant, automated matching engine with on-chain escrow. 
+
+### The Core Loop
+1. **Initiation:** A user (the "Creator") wants to pay a merchant in India via UPI, but they only have crypto (SOL or USDC). They create an order on CruPay specifying the target UPI ID and the INR amount.
+2. **Escrow Deposit:** The Creator signs a Solana transaction to lock the equivalent crypto amount in a smart escrow wallet.
+3. **P2P Matching:** A liquidity provider (the "Taker") who has INR and wants to buy crypto sees the order on the marketplace.
+4. **Fiat Settlement:** The Taker uses their personal banking app to send the exact INR amount to the merchant's UPI ID.
+5. **Confirmation & Release:** The Creator verifies the merchant received the funds and confirms the transaction on CruPay. The escrow automatically releases the locked crypto to the Taker's Solana wallet.
+
+## Features
+
+- **Direct to UPI:** Pay any Google Pay, PhonePe, or Paytm UPI ID instantly without KYC or wrapping tokens.
+- **Universal Scanner:** A mobile-friendly Lite App that scans standard Indian merchant QR codes and automatically routes the transaction to the Solana network.
+- **Web3 Invoicing:** Businesses can generate professional invoices with embedded Solana Pay links. Anyone can pay the invoice, and CruPay will handle the crypto-to-UPI conversion.
+- **On-Chain Escrow:** A trustless architecture ensures that crypto is never released until the fiat settlement is strictly verified.
+
+## Architecture
+
+CruPay is built exclusively for the Solana ecosystem, utilizing:
+- **Frontend:** Next.js 16, React 19, Tailwind CSS v4
+- **Wallet Integration:** ConnectorKit (`@solana/connector`) for Wallet Standard compatibility
+- **Payments:** Solana Pay (`@solana/pay` v1.0) and `@solana/kit` for instruction generation and transaction signing
+- **Design System:** A distinct "Skeuomorphic Retro-Modern / Tactile 3D" aesthetic that mimics physical hardware.
+
+## Contact & Links
+- GitHub: https://github.com/CruPay/CruPay
+- Network: Solana Devnet

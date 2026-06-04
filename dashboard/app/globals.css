@@ -1,0 +1,304 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@import "../components/dotmatrix-loader.css";
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-jakarta);
+  --font-mono: var(--font-space-mono);
+  --font-display: var(--font-jakarta);
+  
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-border: var(--border);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-surface-1: var(--surface-1);
+  --color-surface-2: var(--surface-2);
+  --color-surface-3: var(--surface-3);
+  --color-surface-hover: var(--surface-hover);
+  --color-status-success-bg: var(--status-success-bg);
+  --color-status-success-text: var(--status-success-text);
+  --color-status-warning-bg: var(--status-warning-bg);
+  --color-status-warning-text: var(--status-warning-text);
+  --color-status-error-bg: var(--status-error-bg);
+  --color-status-error-text: var(--status-error-text);
+  
+  --radius-sm: 12px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --radius-2xl: 48px;
+  --radius-full: 9999px;
+}
+
+:root {
+  /* Tactile / Skeuomorphic Modern Base */
+  --background: #EBEBE6;
+  --foreground: #1D1D1B;
+  
+  /* Physical Cards */
+  --card: #F4F4F0;
+  --card-foreground: #1D1D1B;
+  
+  /* Surface Levels (for nesting depth) */
+  --surface-1: #F4F4F0; /* Card headers, nav bars */
+  --surface-2: #EBEBE6; /* Inset containers */
+  --surface-3: #E6E6E1; /* Deeper insets */
+  --surface-hover: #E2E2DC; /* Hover states */
+  
+  /* Status Colors */
+  --status-success-bg: #D9E6E2;
+  --status-success-text: #2D5A4C;
+  --status-warning-bg: #FCEBCE;
+  --status-warning-text: #E6A845;
+  --status-error-bg: #FFEFEF;
+  --status-error-text: #E34A4A;
+  
+  /* Vibrant Burnt Orange (Primary) */
+  --primary: #FF5A36;
+  --primary-foreground: #FFFFFF;
+  
+  /* Rich Forest Green (Accent) */
+  --accent: #2D5A4C;
+  --accent-foreground: #FFFFFF;
+  
+  --muted: #E2E2DC;
+  --muted-foreground: #767671;
+  
+  --destructive: #E34A4A;
+  --destructive-foreground: #FFFFFF;
+  
+  --border: rgba(29, 29, 27, 0.08);
+  --input: #FFFFFF;
+  --ring: rgba(255, 90, 54, 0.4);
+  
+  /* Charts - Tactile Palette */
+  --chart-1: #FF5A36;
+  --chart-2: #2D5A4C;
+  --chart-3: #E6A845;
+  --chart-4: #6E5C8C;
+  --chart-5: #3E3E3C;
+  
+  --popover: #FFFFFF;
+  --popover-foreground: #1D1D1B;
+  --radius: 24px;
+}
+
+.dark {
+  --popover: #1E1E1C;
+  --popover-foreground: #EBEBE6;
+  /* Tactile Dark Mode (Matte Black Hardware) */
+  --background: #141413;
+  --foreground: #EBEBE6;
+  --card: #1E1E1C;
+  --card-foreground: #EBEBE6;
+  
+  --surface-1: #1E1E1C;
+  --surface-2: #141413;
+  --surface-3: #0D0D0C;
+  --surface-hover: #2A2A28;
+  
+  --status-success-bg: #1A2F28;
+  --status-success-text: #6BBF9E;
+  --status-warning-bg: #2D2510;
+  --status-warning-text: #F0C060;
+  --status-error-bg: #2D1515;
+  --status-error-text: #FF6B6B;
+  
+  --primary: #FF5A36;
+  --primary-foreground: #FFFFFF;
+  --accent: #418571;
+  --accent-foreground: #FFFFFF;
+  --muted: #2A2A28;
+  --muted-foreground: #9A9A95;
+  --border: rgba(255, 255, 255, 0.08);
+  --input: #1E1E1C;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased selection:bg-primary/20 selection:text-primary;
+    /* Soft noise texture baked into the background */
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.5' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+  }
+  .dark body {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.5' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display tracking-tight text-foreground font-bold;
+  }
+}
+
+@layer utilities {
+  /* Embossed, Physical Card Style */
+  .surface-card {
+    background: var(--card);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 
+      0 10px 30px -10px rgba(0, 0, 0, 0.08),
+      0 4px 10px -4px rgba(0, 0, 0, 0.04),
+      inset 0 2px 4px rgba(255, 255, 255, 0.9),
+      inset 0 -2px 4px rgba(0, 0, 0, 0.02);
+    border-radius: var(--radius);
+  }
+
+  .dark .surface-card {
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 
+      0 10px 30px -10px rgba(0, 0, 0, 0.5),
+      0 4px 10px -4px rgba(0, 0, 0, 0.3),
+      inset 0 1px 1px rgba(255, 255, 255, 0.1),
+      inset 0 -1px 2px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Inset, "pressed" container style */
+  .surface-inset {
+    background: var(--surface-3);
+    border: 1px solid rgba(0,0,0,0.05);
+    box-shadow: 
+      inset 0 4px 8px rgba(0, 0, 0, 0.04),
+      inset 0 2px 4px rgba(0, 0, 0, 0.02),
+      0 1px 0 rgba(255, 255, 255, 0.8);
+  }
+
+  .dark .surface-inset {
+    background: var(--surface-3);
+    border: 1px solid rgba(0,0,0,0.5);
+    box-shadow: 
+      inset 0 4px 8px rgba(0, 0, 0, 0.4),
+      inset 0 2px 4px rgba(0, 0, 0, 0.2),
+      0 1px 0 rgba(255, 255, 255, 0.05);
+  }
+
+  /* Tactile, 3D Buttons */
+  .btn-tactile-primary {
+    background: linear-gradient(180deg, #FF6F4E 0%, var(--primary) 100%);
+    color: white;
+    border: 1px solid #E64320;
+    border-radius: 9999px;
+    box-shadow: 
+      inset 0 2px 2px rgba(255, 255, 255, 0.3),
+      inset 0 -4px 4px rgba(0, 0, 0, 0.15),
+      0 4px 10px rgba(255, 90, 54, 0.3),
+      0 2px 4px rgba(255, 90, 54, 0.2);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    transition: all 0.15s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  
+  .dark .btn-tactile-primary {
+    box-shadow: 
+      inset 0 2px 2px rgba(255, 255, 255, 0.2),
+      inset 0 -4px 4px rgba(0, 0, 0, 0.3),
+      0 4px 10px rgba(255, 90, 54, 0.2),
+      0 2px 4px rgba(255, 90, 54, 0.1);
+  }
+  
+  .btn-tactile-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+      inset 0 2px 2px rgba(255, 255, 255, 0.4),
+      inset 0 -4px 4px rgba(0, 0, 0, 0.15),
+      0 6px 14px rgba(255, 90, 54, 0.4),
+      0 4px 6px rgba(255, 90, 54, 0.2);
+  }
+  
+  .dark .btn-tactile-primary:hover {
+    box-shadow: 
+      inset 0 2px 2px rgba(255, 255, 255, 0.3),
+      inset 0 -4px 4px rgba(0, 0, 0, 0.3),
+      0 6px 14px rgba(255, 90, 54, 0.3),
+      0 4px 6px rgba(255, 90, 54, 0.15);
+  }
+  
+  .btn-tactile-primary:active {
+    transform: translateY(2px);
+    box-shadow: 
+      inset 0 4px 6px rgba(0, 0, 0, 0.2),
+      0 0 0 rgba(255, 90, 54, 0);
+  }
+
+  .dark .btn-tactile-primary:active {
+    box-shadow: 
+      inset 0 4px 6px rgba(0, 0, 0, 0.4),
+      0 0 0 rgba(255, 90, 54, 0);
+  }
+
+  .btn-tactile-secondary {
+    background: linear-gradient(180deg, #FFFFFF 0%, #F5F5F2 100%);
+    color: #1D1D1B;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 9999px;
+    box-shadow: 
+      inset 0 2px 2px rgba(255, 255, 255, 1),
+      inset 0 -2px 2px rgba(0, 0, 0, 0.05),
+      0 2px 5px rgba(0, 0, 0, 0.05);
+    transition: all 0.15s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .dark .btn-tactile-secondary {
+    background: linear-gradient(180deg, #2A2A28 0%, #1E1E1C 100%);
+    color: #EBEBE6;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 
+      inset 0 1px 1px rgba(255, 255, 255, 0.1),
+      inset 0 -2px 2px rgba(0, 0, 0, 0.3),
+      0 2px 5px rgba(0, 0, 0, 0.3);
+  }
+  
+  .btn-tactile-secondary:hover {
+    transform: translateY(-1px);
+    box-shadow: 
+      inset 0 2px 2px rgba(255, 255, 255, 1),
+      inset 0 -2px 2px rgba(0, 0, 0, 0.05),
+      0 4px 8px rgba(0, 0, 0, 0.08);
+  }
+
+  .dark .btn-tactile-secondary:hover {
+    box-shadow: 
+      inset 0 1px 1px rgba(255, 255, 255, 0.15),
+      inset 0 -2px 2px rgba(0, 0, 0, 0.3),
+      0 4px 8px rgba(0, 0, 0, 0.4);
+  }
+  
+  .btn-tactile-secondary:active {
+    transform: translateY(2px);
+    box-shadow: 
+      inset 0 4px 6px rgba(0, 0, 0, 0.05),
+      0 0 0 rgba(0, 0, 0, 0);
+  }
+
+  .dark .btn-tactile-secondary:active {
+    box-shadow: 
+      inset 0 4px 6px rgba(0, 0, 0, 0.4),
+      0 0 0 rgba(0, 0, 0, 0);
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--muted-foreground);
+  border-radius: 10px;
+  border: 2px solid var(--background);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--foreground);
+}

@@ -1,0 +1,36 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Soft, tactile background (looks like clay/sand) -->
+  <rect width="512" height="512" rx="120" fill="#EBEBE6" />
+  
+  <!-- Outer Border (Dark Charcoal) -->
+  <rect x="16" y="16" width="480" height="480" rx="104" fill="none" stroke="#1D1D1B" stroke-width="32" />
+
+  <!-- Inner embossed highlight -->
+  <rect x="32" y="32" width="448" height="448" rx="88" fill="none" stroke="#FFFFFF" stroke-width="16" opacity="0.8" />
+
+  <!-- Drop Shadow for the main mark -->
+  <g filter="url(#drop-shadow)">
+    <!-- The "SB" Geometric Mark -->
+    
+    <!-- Top left corner (Forest Green) -->
+    <path d="M128 128 h 128 v 128 h -128 z" fill="#2D5A4C" stroke="#1D1D1B" stroke-width="24" stroke-linejoin="round" />
+    
+    <!-- Top right corner (Burnt Orange) -->
+    <path d="M256 128 h 128 v 128 a 128 128 0 0 1 -128 128 v -256 z" fill="#FF5A36" stroke="#1D1D1B" stroke-width="24" stroke-linejoin="round" />
+    
+    <!-- Bottom left curve (Burnt Orange) -->
+    <path d="M256 256 v 128 h -128 a 128 128 0 0 1 128 -128 z" fill="#FF5A36" stroke="#1D1D1B" stroke-width="24" stroke-linejoin="round" />
+  </g>
+
+  <!-- Embossed Highlights on the Mark -->
+  <path d="M140 140 h 104" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round" opacity="0.5"/>
+  <path d="M268 140 h 104" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round" opacity="0.5"/>
+
+  <!-- Definition for tactile drop shadow -->
+  <defs>
+    <filter id="drop-shadow" x="100" y="100" width="350" height="350" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="12" dy="24" stdDeviation="16" flood-color="#000000" flood-opacity="0.15" />
+      <feDropShadow dx="4" dy="8" stdDeviation="4" flood-color="#000000" flood-opacity="0.1" />
+    </filter>
+  </defs>
+</svg>
