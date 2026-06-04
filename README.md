@@ -35,7 +35,7 @@ Built for freelancers and businesses. Generate professional invoices, share Sola
 Trustless and secure. Crypto never goes directly to crupay; it is locked in an escrow address and only released when the exact INR amount hits the destination UPI address.
 
 ### 💱 Multi-Token Support
-Pay with **SOL** or **USDC**. Strawbee dynamically calculates exchange rates to ensure merchants receive the exact INR amount requested.
+Pay with **SOL** or **USDC**. CruPay dynamically calculates exchange rates to ensure merchants receive the exact INR amount requested.
 
 ## Tech Stack
 
