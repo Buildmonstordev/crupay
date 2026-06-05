@@ -8,20 +8,20 @@ import { Button } from "@/components/ui/button";
 import { Users, TrendingUp, ShieldCheck, Activity, ArrowRight } from "lucide-react";
 import { toast } from "sonner";
 
-// Simulated +40% MoM growth curve ending at ~1,300 cumulative pre-registrations
+// Simulated +40% MoM growth curve ending at ~500 cumulative pre-registrations
 const growthData = [
-  { month: "Nov", users: 340 },
-  { month: "Dec", users: 475 },
-  { month: "Jan", users: 665 },
-  { month: "Feb", users: 930 },
-  { month: "Mar", users: 1305 },
+  { month: "Nov", users: 130 },
+  { month: "Dec", users: 182 },
+  { month: "Jan", users: 255 },
+  { month: "Feb", users: 357 },
+  { month: "Mar", users: 500 },
 ];
 
 export default function AnalyticsPage() {
   const stats = [
     {
       title: "Total Pre-Registrations",
-      value: "1,300+",
+      value: "500+",
       icon: Users,
       color: "text-primary",
       bg: "surface-inset",
