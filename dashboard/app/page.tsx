@@ -21,7 +21,7 @@ import { toast } from "sonner";
 
 export default function LandingPage() {
   const handlePreRegister = () => {
-    toast.success("You are on the waitlist! You are user #25,001.");
+    toast.success("You are on the waitlist! You are KYC-verified user #251.");
   };
   return (
     <div className="min-h-screen bg-background relative overflow-x-hidden">
@@ -107,15 +107,24 @@ export default function LandingPage() {
             </Link>
           </div>
           
-          <div className="flex items-center gap-2 mt-6">
-            <div className="flex -space-x-3">
-              {[1,2,3,4,5].map((i) => (
-                <div key={i} className="w-8 h-8 rounded-full border-2 border-background bg-muted flex items-center justify-center surface-card overflow-hidden">
-                   <img src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${i}&backgroundColor=e2e2dc`} alt="avatar" />
-                </div>
-              ))}
+          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 mt-6">
+            {/* Stat: month-over-month growth */}
+            <div className="flex items-center gap-3 rounded-full surface-inset px-6 py-3 border border-border shadow-inner">
+              <LineChart className="h-5 w-5 text-primary shrink-0" />
+              <div className="text-left leading-none">
+                <p className="font-display text-2xl font-black tracking-tight text-foreground">+40%</p>
+                <p className="text-[10px] font-mono font-bold uppercase tracking-widest text-muted-foreground mt-1.5">MoM Growth</p>
+              </div>
             </div>
-            <p className="text-sm font-bold text-muted-foreground ml-2">Join <span className="text-foreground">25,000+</span> users already registered</p>
+
+            {/* Stat: KYC-verified users */}
+            <div className="flex items-center gap-3 rounded-full surface-inset px-6 py-3 border border-border shadow-inner">
+              <Shield className="h-5 w-5 text-accent shrink-0" />
+              <div className="text-left leading-none">
+                <p className="font-display text-2xl font-black tracking-tight text-foreground">250+</p>
+                <p className="text-[10px] font-mono font-bold uppercase tracking-widest text-muted-foreground mt-1.5">KYC Verified</p>
+              </div>
+            </div>
           </div>
           
           <div className="pt-24 animate-bounce text-muted-foreground/50">
