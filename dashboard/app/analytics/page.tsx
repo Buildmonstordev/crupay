@@ -8,34 +8,34 @@ import { Button } from "@/components/ui/button";
 import { Users, TrendingUp, ShieldCheck, Activity, ArrowRight } from "lucide-react";
 import { toast } from "sonner";
 
-// Simulated exponential growth data up to 25,000
+// Simulated +40% MoM growth curve ending at ~1,300 cumulative pre-registrations
 const growthData = [
-  { month: "Nov", users: 1200 },
-  { month: "Dec", users: 3400 },
-  { month: "Jan", users: 8200 },
-  { month: "Feb", users: 15400 },
-  { month: "Mar", users: 25000 },
+  { month: "Nov", users: 340 },
+  { month: "Dec", users: 475 },
+  { month: "Jan", users: 665 },
+  { month: "Feb", users: 930 },
+  { month: "Mar", users: 1305 },
 ];
 
 export default function AnalyticsPage() {
   const stats = [
     {
       title: "Total Pre-Registrations",
-      value: "25,000+",
+      value: "1,300+",
       icon: Users,
       color: "text-primary",
       bg: "surface-inset",
     },
     {
       title: "MoM Growth",
-      value: "+62%",
+      value: "+40%",
       icon: TrendingUp,
       color: "text-[#E6A845]",
       bg: "surface-inset",
     },
     {
       title: "KYC Verified Profiles",
-      value: "18,450",
+      value: "250+",
       icon: ShieldCheck,
       color: "text-accent",
       bg: "surface-inset",
@@ -50,7 +50,7 @@ export default function AnalyticsPage() {
   ];
 
   const handlePreRegister = () => {
-    toast.success("You are on the waitlist! You are user #25,001.");
+    toast.success("You are on the waitlist! You are KYC-verified user #251.");
   };
 
   return (
